@@ -2,7 +2,7 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 
 //
-const questionCounterText = document.getElementById("questionCounter");
+const progressText = document.getElementById("progressText");
 const scoreText = document.getElementById("score");
 // the counter for the question number and score collected by id
 let currentQuestion = {};
@@ -188,6 +188,8 @@ let questions = [
 //CONSTANTS
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 20;
+// set the default to be 10 for every right answer.
+//set max question numbers.
 
 startGame = () => {
   questionCounter = 0;
@@ -195,14 +197,17 @@ startGame = () => {
   availableQuesions = [...questions];
   getNewQuestion();
 };
+// start take set to 0 and will get new question in random order each time we start.
 
 getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-    //go to the end page
+    //if all selected quesitoned are done, return end of the game.
     return window.location.assign("/end.html");
   }
   questionCounter++;
-  questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS;
+  progressText.innerText ="Question  "
+  + questionCounter + "/" + MAX_QUESTIONS;
+
 
   const questionIndex = Math.floor(Math.random() * availableQuesions.length);
   currentQuestion = availableQuesions[questionIndex];
