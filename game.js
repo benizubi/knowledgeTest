@@ -5,6 +5,7 @@ const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progressText");
 const scoreText = document.getElementById("score");
 // the counter for the question number and score collected by id
+const progressBarFull = document.getElementById("progressBarFull");
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -208,7 +209,9 @@ getNewQuestion = () => {
   progressText.innerText ="Question  "
   + questionCounter + "/" + MAX_QUESTIONS;
 
-
+//update for the progress bar
+  progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100 }%`;
+  // style is how to change the css properties.
   const questionIndex = Math.floor(Math.random() * availableQuesions.length);
   currentQuestion = availableQuesions[questionIndex];
   question.innerText = currentQuestion.question;
@@ -236,6 +239,7 @@ choices.forEach(choice => {
     if (classToApply === "correct") {
       incrementScore(CORRECT_BONUS);
     }
+    // if the answer is corrct increase the bonus the initial bonus num
 
     selectedChoice.parentElement.classList.add(classToApply);
 
