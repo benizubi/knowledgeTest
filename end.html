@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, intial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Congrats!</title>
+    <title>Congrats! Game Over</title>
     <link rel="stylesheet" href="app.css"/>
 </head>
 <body>
@@ -18,10 +18,14 @@
         id= "username"
         placeholder="username"
         />
-        <button type="submit" class="btn">Save</button>
+        <button type="submit" class="btn" id="saveScoreBtn"
+        onclick="saveHighScore(event)">
+        Save</button>
     </form>
+    <a class="btn" href="/game.html">Play Again</a>
+    <a class="btn" href="/">Go Back Home</a>
     </div>
     </div>
-    <script src="end.js"></script>
+     <script src="end.js"></script>
 </body>
 </html>
