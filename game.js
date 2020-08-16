@@ -203,6 +203,8 @@ startGame = () => {
 getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     //if all selected quesitoned are done, return end of the game.
+    localStorage.setItem("mostRecentScore", score);
+    // collecting the recentscore after all question completed 
     return window.location.assign("/end.html");
   }
   questionCounter++;
