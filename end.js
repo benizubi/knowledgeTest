@@ -22,13 +22,13 @@ saveHighScore = (e) => {
     const score = {
         score: Math.floor(Math.random() * 100),
         name: username.value
-        // collecting thr score and name values to add to the array
+        // collecting the score and name values to add to the array
     };
     highScores.push(score);
     // pushes this to the array 
 
     highScores.sort((a,b) => b.score - a.score);
-    //an array function to sort and returning the highest to lowest score usin if stament.
+    //an array function to sort and returning the highest to lowest score using if stament.
 
     highScores.splice(5);
 // this only collects the highest score and will slice out anything after the 5th.
